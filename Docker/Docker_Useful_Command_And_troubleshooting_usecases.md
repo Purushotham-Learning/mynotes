@@ -1,171 +1,178 @@
- Check Docker Environment and Version
-docker version — Check Docker client and server versions.
+# 🐳 Docker Troubleshooting & Diagnostics Cheat Sheet
 
-docker info — Get detailed system-wide info including storage driver, containers, images, etc.
+---
 
-🧠 Inspect Containers
-docker ps — List running containers.
+## ✅ 1. Check Docker Environment and Version
 
-docker ps -a — List all containers (including exited).
+| Command               | Purpose                              |
+|-----------------------|--------------------------------------|
+| `docker version`      | Show Docker client/server versions   |
+| `docker info`         | Full system-wide Docker info         |
 
-docker inspect <container_id> — Full JSON config of the container (IP, mounts, env vars).
+---
 
-docker logs <container_id> — Show container stdout/stderr logs.
+## ✅ 2. Inspect Containers
 
-docker top <container_id> — View processes running inside the container.
+| Command                                 | Purpose                                 |
+|-----------------------------------------|-----------------------------------------|
+| `docker ps`                              | List running containers                 |
+| `docker ps -a`                           | List all containers (incl. exited)      |
+| `docker inspect <container_id>`         | View full config (IP, mounts, env, etc.)|
+| `docker logs <container_id>`            | View container logs                     |
+| `docker top <container_id>`             | Show processes inside a container       |
+| `docker exec -it <container_id> bash`   | Open shell inside a container           |
 
-docker exec -it <container_id> /bin/bash — Get a shell into the container for debugging.
+---
 
-🗂️ Check Images
-docker images — List all local images.
+## ✅ 3. Images & Metadata
 
-docker inspect <image_id> — Inspect image configuration and metadata.
+| Command                            | Purpose                     |
+|------------------------------------|-----------------------------|
+| `docker images`                    | List all local images       |
+| `docker inspect <image_id>`       | View image metadata         |
 
-📂 Volumes & Storage
-docker volume ls — List Docker volumes.
+---
 
-docker volume inspect <volume_name> — Inspect volume mount path, usage.
+## ✅ 4. Volumes & Storage
 
-du -sh /var/lib/docker/ — Check total Docker disk usage (host level).
+| Command                               | Purpose                                         |
+|---------------------------------------|-------------------------------------------------|
+| `docker volume ls`                    | List volumes                                    |
+| `docker volume inspect <volume>`     | Inspect volume usage and paths                 |
+| `du -sh /var/lib/docker/`             | Check disk usage (Linux host)                  |
+| `docker system df`                    | Disk usage by images, containers, volumes      |
 
-docker system df — Show disk usage by Docker images, containers, volumes.
+---
 
-⚠️ Check Errors and Events
-docker events — Real-time events stream (can help identify crashes, starts, kills).
+## ✅ 5. Real-Time Monitoring & Events
 
-docker stats — Live container CPU/memory/network I/O usage.
+| Command                 | Purpose                                   |
+|-------------------------|-------------------------------------------|
+| `docker stats`          | Live resource usage                       |
+| `docker events`         | Real-time Docker events (start, stop, etc.)|
 
-🔗 Network Troubleshooting
-docker network ls — List all Docker networks.
+---
 
-docker network inspect <network_name> — See containers and settings on a network.
+## ✅ 6. Networking & Connectivity
 
-docker exec <container_id> ping <other_container_or_host> — Test connectivity from inside.
+| Command                                      | Purpose                                      |
+|----------------------------------------------|----------------------------------------------|
+| `docker network ls`                          | List networks                                |
+| `docker network inspect <network>`           | See containers in a network                  |
+| `docker exec <container> ping <target>`      | Test container-to-container connectivity     |
+| `docker inspect <container>`                 | Check container's IP, DNS, ports             |
 
-🔐 Permission/Access Issues
-docker logs <container_id> — Look for permission or access errors in logs.
+---
 
-ls -l /var/run/docker.sock — Verify Docker socket permissions.
+## ✅ 7. Permission & Access Issues
 
-groups — See if user belongs to the docker group (if not, might need sudo).
+| Command                              | Purpose                                   |
+|--------------------------------------|-------------------------------------------|
+| `docker logs <container>`            | Check for permission/access errors        |
+| `ls -l /var/run/docker.sock`         | Check socket permissions                  |
+| `groups`                             | Check if user is in `docker` group        |
 
-🧹 Cleanup (if needed for disk space)
-docker container prune — Remove stopped containers.
+---
 
-docker image prune — Remove dangling images.
+## ✅ 8. Cleanup & Disk Recovery
 
-docker volume prune — Remove unused volumes.
+| Command                        | Purpose                                |
+|--------------------------------|----------------------------------------|
+| `docker container prune`       | Remove stopped containers              |
+| `docker image prune`           | Remove dangling images                 |
+| `docker volume prune`          | Remove unused volumes                  |
+| `docker system prune -a`       | Full cleanup (images, containers, etc.)|
 
-docker system prune -a — Aggressive cleanup (stopped containers, networks, unused images).
+---
 
-🧪 Run Diagnostics
-docker run hello-world — Test if Docker is working.
+## ✅ 9. Basic Diagnostics
 
-docker run -it --rm busybox — Run lightweight container for testing.
+| Command                             | Purpose                                 |
+|-------------------------------------|-----------------------------------------|
+| `docker run hello-world`            | Test if Docker is working               |
+| `docker run -it --rm busybox`       | Launch test container                   |
 
-🧾 Log and Config Files (Host Level)
-/var/log/docker.log — Main Docker daemon log (varies by OS).
+---
 
-/etc/docker/daemon.json — Docker daemon configuration file.
+## ✅ 10. Host-Level Logs & Configs
 
+| Command/File                       | Purpose                               |
+|------------------------------------|----------------------------------------|
+| `/var/log/docker.log`              | Docker daemon logs                     |
+| `/etc/docker/daemon.json`          | Docker daemon config file              |
+| `sudo systemctl status docker`     | Check Docker daemon status (Linux)     |
 
-✅ 1. Container is Not Starting
-Symptoms: You run a container, and it immediately exits or fails to start.
+---
 
-Use commands:
+# 🎯 Common Troubleshooting Scenarios
 
-docker ps -a → Check if the container exists and its status.
+---
 
-docker logs <container_id> → View logs to find crash reason (missing file, port conflict, etc.).
+### ✅ 1. Container Not Starting
 
-docker inspect <container_id> → Check entrypoint, env vars, mounts.
+- `docker ps -a` → Check container status
+- `docker logs <container>` → Find crash reason
+- `docker inspect <container>` → Check env, volumes, entrypoint
+- `docker events` → Lifecycle events (create, stop, kill)
 
-docker events → See lifecycle events like start, stop, kill.
+---
 
-✅ 2. Debug Inside a Running Container
-Symptoms: Container is running, but app is not responding or behaving correctly.
+### ✅ 2. Debug Inside a Running Container
 
-Use commands:
+- `docker exec -it <container> bash` → Open shell inside
+- `docker top <container>` → Running processes
+- `docker logs <container>` → Check logs/errors
 
-docker exec -it <container_id> bash → Access the container's shell for manual checks.
+---
 
-docker top <container_id> → See which processes are running inside.
+### ✅ 3. Network Issues Between Containers
 
-docker logs <container_id> → Look for runtime errors in the logs.
+- `docker network ls` → List networks
+- `docker network inspect <network>` → Check connected containers
+- `docker exec <container> ping <other>` → Test container network
+- `docker inspect <container>` → Check IP/ports/DNS
 
-✅ 3. Network Issues Between Containers
-Symptoms: One container cannot connect to another.
+---
 
-Use commands:
+### ✅ 4. High Resource Usage
 
-docker network ls → Verify if both containers are in the same network.
+- `docker stats` → Live usage view
+- `docker inspect <container>` → Check limits
+- `docker info` → Host resources, container count
 
-docker network inspect <network_name> → Check connected containers and their IPs.
+---
 
-docker exec <container_id> ping <target_container> → Test connectivity.
+### ✅ 5. Docker Disk Space Running Low
 
-docker inspect <container_id> → Verify DNS, IP, exposed ports.
+- `docker system df` → Breakdown of disk usage
+- `docker image ls` → Identify large images
+- `docker container/image/volume prune` → Cleanup unused data
+- `du -sh /var/lib/docker/` → Disk usage of Docker (Linux)
 
-✅ 4. High Resource Usage
-Symptoms: Docker host is slow, or containers are being throttled.
+---
 
-Use commands:
+### ✅ 6. Docker Daemon Not Starting / Issues
 
-docker stats → Monitor live CPU, memory, I/O usage of all containers.
+- `sudo systemctl status docker` → Check status
+- `cat /var/log/docker.log` → View daemon errors
+- `docker version` → Validate versions
+- `cat /etc/docker/daemon.json` → Check config validity
 
-docker inspect <container_id> → Check resource limits (memory, cpu_shares, etc.).
+---
 
-docker info → Review total resources, storage usage, and container counts.
+### ✅ 7. Container Cannot Access Internet
 
-✅ 5. Docker Disk Space Running Low
-Symptoms: Docker builds or containers fail due to low disk space.
+- `docker exec -it <container> ping google.com` → DNS test
+- `docker inspect <container>` → Network config
+- `iptables -L` (host) → Check firewall rules
+- `docker network inspect bridge` → Bridge setup
 
-Use commands:
+---
 
-docker system df → See what's consuming space (images, containers, volumes).
+### ✅ 8. Container Permissions or Mount Failures
 
-docker image ls → Identify old or large images.
+- `docker inspect <container>` → Check mount paths and modes
+- `docker volume inspect <volume>` → Host volume path
+- `ls -l` (on host) → Check file permissions
 
-docker container prune → Clean up stopped containers.
-
-docker volume prune → Remove unused volumes.
-
-du -sh /var/lib/docker/ → Check disk usage by Docker on host system.
-
-✅ 6. Docker Daemon Not Starting / Misbehaving
-Symptoms: Docker fails to start or containers can’t be run.
-
-Use commands:
-
-sudo systemctl status docker → Check if Docker is running (Linux).
-
-cat /var/log/docker.log → Review logs for daemon errors.
-
-docker version → Check client/server compatibility.
-
-cat /etc/docker/daemon.json → Validate configuration file for errors.
-
-✅ 7. Container Cannot Access Internet
-Symptoms: apt-get or curl inside container fails.
-
-Use commands:
-
-docker exec -it <container_id> ping google.com → Test DNS resolution.
-
-docker inspect <container_id> → Check network config.
-
-iptables -L (on host) → Check if outgoing rules are blocking.
-
-docker network inspect bridge → Verify Docker bridge settings.
-
-✅ 8. Container Permissions or Mount Failures
-Symptoms: Volume mounts don't work or container can't access files.
-
-Use commands:
-
-docker inspect <container_id> → Check volume mount paths and modes.
-
-docker volume inspect <volume_name> → Inspect host location.
-
-ls -l on host → Check file/dir permissions.
-
+---
