@@ -1,3 +1,60 @@
+~~~ Mastering Docker: Key Concepts & Commands
+Docker Fundamentals
+  Docker is a containerization platform for packaging apps with dependencies.
+  Containers are isolated, lightweight, and portable environments.
+  Images are read-only templates used to create containers.
+  Containers run from images and can be started, stopped, and removed.
+Core Docker Components
+  Docker Engine: Core service that builds and runs containers.
+  Docker CLI: Command-line interface to interact with Docker.
+  Docker Daemon: Background service managing Docker objects.
+  Dockerfile: Script with instructions to build Docker images.
+  Docker Hub: Public registry for sharing and pulling images.
+  Volumes: Persistent storage for containers.
+  Networks: Enable communication between containers.
+Dockerfile Essentials
+  FROM: Base image.
+  RUN: Execute commands during image build.
+  COPY / ADD: Copy files into the image.
+  CMD: Default command to run in container (can be overridden).
+  ENTRYPOINT: Preferred command that always runs.
+  EXPOSE: Document the port the container listens on.
+  WORKDIR: Set working directory inside the container.
+  ENV: Set environment variables.
+Image vs Container
+  Image: Blueprint (static, reusable).
+  Container: Running instance (dynamic, isolated).
+Docker Networking
+  Bridge (default): Isolated network for containers.
+  Host: Container shares host’s network stack.
+  None: No networking.
+Overlay: Multi-host networking (used in Swarm).
+Macvlan: Assign MAC address to container (advanced use).
+Docker Compose
+  Used to define and run multi-container apps.
+  Configuration in docker-compose.yml.
+Key commands:
+
+Docker Security Best Practices
+Use minimal base images (e.g., Alpine).
+Avoid running containers as root.
+Regularly scan images for vulnerabilities.
+Use .dockerignore to exclude sensitive files.
+Limit container capabilities using --cap-drop.
+Docker Lifecycle
+Build: Create image from Dockerfile.
+Run: Start container from image.
+Stop: Halt container.
+Remove: Delete container/image.
+Advanced Concepts
+Multi-stage builds: Optimize image size by separating build and runtime stages.
+Bind mounts vs Volumes:
+Bind mount: Direct host path.
+Volume: Managed by Docker, better for portability.
+Image layers: Each Dockerfile instruction creates a new layer (cached).
+Tagging: Use :tag to version images (e.g., myapp:1.0).
+
+~~~
 # 🐳 Docker Troubleshooting & Diagnostics Cheat Sheet
 
 ---
