@@ -27,3 +27,14 @@
 | Verify Certificate             | `openssl x509 -in cert.pem -text -noout`                                   |
 | Check SSL Connection to Server | `openssl s_client -connect example.com:443`                                |
 | Convert PEM to PFX             | `openssl pkcs12 -export -out cert.pfx -inkey key.pem -in cert.pem`         |
+
+
+openssl req -x509 -newkey rsa:2048 -nodes -keyout self.key -out self.crt
+
+Explanation:
+openssl req: Starts the certificate request process.
+-x509: Outputs a self-signed certificate instead of a certificate request (CSR).
+-newkey rsa:2048: Generates a new RSA key of 2048 bits.
+-nodes: Skips the option to secure the private key with a passphrase (stands for "no DES").
+-keyout self.key: Specifies the filename to write the private key to (self.key).
+-out self.crt: Specifies the filename to write the certificate to (self.crt).
