@@ -97,47 +97,51 @@ ML works with the function:
 
 ## Types of ML Techniques:
 
-### Supervised Learning:
+### 1. Supervised Learning:
 - Learn from labelled data
+  - In machine learning, when data comes with labels (dependent feature/target), we can train a model to map inputs → outputs.
+  - The algorithm learns from examples where the correct answer is already known.
 - When we have a dependent feature we call it supervised learning.
 
 #### Types of Problem Statements:
 
 **Regression**  
-- Focus: Predicts output, mostly working with continuous data.  
-- Example: Predicting house prices based on features like size, location, and number of bedrooms.  
-
-**Regression Algorithms:**
-- Simple Linear Regression
-- Multi Linear Regression
-- Polynomial Regression
-- Support Vector Regression
-- Ridge & Lasso Regression
-- Elastic Net
+  - Focus: Predicts output, mostly working with continuous data.
+  - Example: Predicting house prices based on features like size, location, and number of bedrooms.
+  - **Regression Algorithms:**
+    - Simple Linear Regression
+    - Multi Linear Regression
+    - Polynomial Regression
+    - Support Vector Regression
+    - Ridge & Lasso Regression
+    - Elastic Net
 
 **Classification**  
-- Focus: Classifies or categorizes the data into distinct classes.  
-- Example: Classifying emails as spam or not spam based on their content.  
+  - Focus: Classifies or categorizes the data into distinct classes.
+  - Example: Classifying emails as spam or not spam based on their content.  
+  - **Types of Classification:**
+    - Binary Classification (When we have only two categories, o/p Pass OR Fail)
+    - Multi-Class Classification (When we have more than two categories, o/p Pass OR Fail OR Maybe)
+    - **Classification Algorithms:**
+      - Logistic Regression
+        - A linear model used for binary and multi-class classification. Despite the name, it’s used for *classification*, not regression.
+      - K-Nearest Neighbours (KNN)
+        - A simple, instance-based algorithm that classifies data points based on the majority class of their *k* nearest neighbors.
+      - Support Vector Machine (SVM)
+        - A powerful algorithm that finds the best hyperplane to separate classes. Works well for both linear and non-linear data.
+      - Kernal SVM
+        - An extension of SVM that uses kernel tricks (e.g., polynomial, RBF) to handle data that is not linearly separable.
+      - Naive Bayes
+        - A probabilistic classifier based on Bayes’ Theorem, assuming features are independent. Often used in text classification (e.g., spam detection).
 
-**Types of Classification:**
-- Binary Classification (When we have only two categories, o/p Pass OR Fail)
-- Multi-Class Classification (When we have more than two categories, o/p Pass OR Fail OR Maybe)
-
-**Classification Algorithms:**
-- Logistic Regression
-- K - Nearest Neighbours (KNN)
-- Support Vector Machine (SVM)
-- Kernal SVM
-- Naive Bayes
-
-### Unsupervised Learning:
+### 2. Unsupervised Learning:
 - Algorithm without label
 - Find the hidden pattern
 - We don’t have dependent feature
 - Group the data  
 **Example:** Customer Segmentation
 
-### Reinforcement Learning:
+### 3. Reinforcement Learning:
 - Application will learn from things by itself by getting some rewards and feedback
 
 ## Different Types of Learning Models:
