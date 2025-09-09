@@ -1,0 +1,129 @@
+Machine Learning & Deep Learning 
+
+1. Foundations of Machine Learning 
+
+Types of ML: Supervised, Unsupervised, Semi-supervised, Reinforcement Learning 
+
+Data Drifting 
+
+Bias-Variance Tradeoff 
+
+Overfitting vs. Underfitting 
+
+Cross-validation 
+
+Model Drift 
+
+ 
+
+2. Feature Engineering 
+
+Encoding Categorical Variables (One-hot, Label Encoding) 
+
+Handling Missing Data 
+
+Feature Selection Techniques 
+
+Dimensionality Reduction 
+
+Feature Scaling (Normalization, Standardization) 
+
+ 
+
+3. Core Algorithms 
+
+Supervised Learning 
+
+Linear Regression 
+
+Logistic Regression 
+
+Decision Trees 
+
+Random Forests 
+
+Support Vector Machines (SVM) 
+
+k-Nearest Neighbors (k-NN) 
+
+Gradient Boosting (XGBoost, LightGBM, CatBoost) 
+
+Neural Networks 
+
+ 
+
+Unsupervised Learning 
+
+k-Means Clustering 
+
+Hierarchical Clustering 
+
+DBSCAN 
+
+Principal Component Analysis (PCA) 
+
+t-SNE, UMAP 
+
+ 
+
+4. Explainability 
+
+SHAP, LIME for BlackBox Model 
+
+5. Model Evaluation & Metrics 
+
+Accuracy, Precision, Recall, F1 Score 
+
+ROC-AUC, PR Curve 
+
+Confusion Matrix 
+
+Mean Squared Error (MSE), Mean Absolute Error (MAE) 
+
+Log Loss 
+
+Silhouette Score(clustering) 
+
+ 
+
+6. Deep Learning 
+
+Perceptrons and Feedforward Neural Networks 
+
+Backpropagation 
+
+Convolutional Neural Networks (CNNs) 
+
+ 
+
+7. NLP 
+
+Text Preprocessing: Tokenization, Lemmatization, Stopword Removal 
+
+Bag of Words, TF-IDF 
+
+Sentiment Analysis – Polarity Score 
+
+Named Entity Recognition 
+
+Topic Modeling 
+
+Embedding Techniques-CBOW, Skip-gram 
+
+Recurrent Neural Networks (RNNs), LSTM, GRU 
+
+Encoder-Decoder architecture 
+
+Transformers and Attention Mechanisms 
+
+ 
+
+8. Tools & Libraries 
+
+ML: scikit-learn, TensorFlow, Keras 
+
+NLP: spaCy, NLTK, Hugging Face Transformers 
+
+Data: pandas, NumPy 
+
+Visualization: matplotlib, seaborn, Plotly 
