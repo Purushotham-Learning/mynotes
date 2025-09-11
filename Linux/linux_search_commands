@@ -12,7 +12,7 @@ find . -perm 777 → Find world-writable files
 find . -atime -7 → Find files accessed in the last 7 days
 find . -type l → Find symbolic links
 
-
+-------------------------------------------
 GREP — Search inside files for patterns
 grep [OPTIONS] "PATTERN" [FILE or DIRECTORY]
 
@@ -27,6 +27,45 @@ grep -v "DEBUG" app.log → Show lines that don’t contain "DEBUG"
 grep "404" *.log → Search for "404" across multiple log files
 grep --color=auto "disk" dmesg → Highlight "disk" in output
 
+--------------------------------------------------------------
+AWK — Pattern scanning and processing
+awk [OPTIONS] 'PATTERN { ACTION }' [FILE]
+
+Memory Tips:
+Think of awk as a mini-programming language for structured text.
+It processes line-by-line, and splits each line into fields (default delimiter: whitespace).
+$1, $2, ..., $NF refer to fields in each line.
+
+awk '{print $1}' file.txt → Print the first column of each line
+awk '/error/ {print $0}' log.txt → Print lines containing "error"
+awk '{sum += $2} END {print sum}' data.txt → Sum the second column
+awk -F: '{print $1}' /etc/passwd → Use : as delimiter to print usernames
+awk 'NR==5' file.txt → Print the 5th line
+awk '{print NR, $0}' file.txt → Print line number and content
+awk '$3 > 100' data.txt → Print lines where 3rd column > 100
+awk '{print $1, $NF}' file.txt → Print first and last column
+awk 'BEGIN {print "Start"} {print $1} END {print "End"}' file.txt → Add headers/footers
+awk '/^#/ {next} {print $0}' config.txt → Skip comment lines starting with #
+-------------------------------------------------------------
+
+sed — Stream editor for filtering and transforming text
+sed [OPTIONS] 'COMMAND' [FILE]
+
+Memory Tips:
+Think of sed as a search-and-replace tool for text streams.
+It works line-by-line and can edit, delete, insert, or replace text.
+
+sed 's/error/ERROR/' file.txt → Replace first "error" with "ERROR" per line
+sed 's/error/ERROR/g' file.txt → Replace all "error" with "ERROR" per line
+sed -n '/error/p' file.txt → Print only lines containing "error"
+sed '2d' file.txt → Delete the 2nd line
+sed '/^$/d' file.txt → Delete empty lines
+sed 's/^/>> /' file.txt → Add prefix to each line
+sed 's/[0-9]/#/g' file.txt → Replace all digits with #
+sed -e 's/foo/bar/' -e 's/baz/qux/' file.txt → Multiple replacements
+sed '3a\This is a new line' file.txt → Append a line after line 3
+sed '1,3d' file.txt → Delete lines 1 to 3
+-------------------------------------------------------------
 LOCATE — Fast file search using a database
 locate [PATTERN]
 
@@ -40,7 +79,7 @@ locate "*.png" → Find PNG image files
 locate purushotham → Find files with your name
 locate "*.tmp" → Find temporary files
 sudo updatedb → Update locate’s file index
-
+--------------------------------------------
  WHICH — Show path of a command
 which [COMMAND]
 
@@ -54,7 +93,7 @@ which ansible → Show Ansible executable path
 which systemctl → Show systemctl location
 which curl → Verify curl availability
 which bash → Show bash shell path
-
+-----------------------------------------------------
 WHEREIS — Locate binaries, source, and man pages
 whereis [COMMAND]
 
