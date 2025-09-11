@@ -1,0 +1,60 @@
+FIND — Locate files and directories
+find /etc -name "nginx.conf" → Find nginx config file
+find . -type f -name "*.sh" → Find shell script files
+find /var -size +100M → Find files larger than 100MB
+find . -mtime -1 → Find files modified in the last day
+find . -name "*.tmp" -delete → Delete all temp files
+find . -name "*.log" -exec gzip {} \; → Compress log files
+find . -type d -empty → Find empty directories
+find . -perm 777 → Find world-writable files
+find . -atime -7 → Find files accessed in the last 7 days
+find . -type l → Find symbolic links
+
+
+GREP — Search inside files for patterns
+grep "ERROR" /var/log/syslog → Find error logs in system logs
+grep -r "TODO" ./src → Recursively search for TODOs in source code
+grep -i "warning" logfile.txt → Case-insensitive search for "warning"
+grep -c "fail" test.log → Count how many times "fail" appears
+grep -n "timeout" config.txt → Show line numbers with "timeout" matches
+grep -w "init" boot.log → Match whole word "init" only
+grep -E "error|fail" app.log → Use regex to match "error" or "fail"
+grep -v "DEBUG" app.log → Show lines that don’t contain "DEBUG"
+grep "404" *.log → Search for "404" across multiple log files
+grep --color=auto "disk" dmesg → Highlight "disk" in output
+
+LOCATE — Fast file search using a database
+locate sshd_config → Quickly locate SSH config file
+locate README.md → Find documentation files
+locate "*.log" → List all log files
+locate nginx → Find nginx binary and related files
+locate backup.sh → Locate backup scripts
+locate libssl.so → Find SSL libraries
+locate "*.png" → Find PNG image files
+locate purushotham → Find files with your name
+locate "*.tmp" → Find temporary files
+sudo updatedb → Update locate’s file index
+
+ WHICH — Show path of a command
+which python3 → Show installed Python binary path
+which git → Show Git executable location
+which node → Verify Node.js installation
+which deploy.sh → Locate deploy script in PATH
+which java → Show Java binary location
+which docker → Verify Docker installation
+which ansible → Show Ansible executable path
+which systemctl → Show systemctl location
+which curl → Verify curl availability
+which bash → Show bash shell path
+
+WHEREIS — Locate binaries, source, and man pages
+whereis gcc → Locate GCC binary, source, and docs
+whereis python → Locate all Python-related paths
+whereis vim → Find Vim binary and man page
+whereis ssh → Locate SSH binary and documentation
+whereis perl → Find Perl installation paths
+whereis systemd → Locate systemd files
+whereis tar → Find tar binary and docs
+whereis cron → Locate cron-related files
+whereis rsync → Find rsync binary and man page
+whereis nginx → Locate nginx binary and config paths
