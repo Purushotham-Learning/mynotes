@@ -1,4 +1,6 @@
 FIND — Locate files and directories
+find [PATH] [OPTIONS] [EXPRESSION]
+
 find /etc -name "nginx.conf" → Find nginx config file
 find . -type f -name "*.sh" → Find shell script files
 find /var -size +100M → Find files larger than 100MB
@@ -12,6 +14,8 @@ find . -type l → Find symbolic links
 
 
 GREP — Search inside files for patterns
+grep [OPTIONS] "PATTERN" [FILE or DIRECTORY]
+
 grep "ERROR" /var/log/syslog → Find error logs in system logs
 grep -r "TODO" ./src → Recursively search for TODOs in source code
 grep -i "warning" logfile.txt → Case-insensitive search for "warning"
@@ -24,6 +28,8 @@ grep "404" *.log → Search for "404" across multiple log files
 grep --color=auto "disk" dmesg → Highlight "disk" in output
 
 LOCATE — Fast file search using a database
+locate [PATTERN]
+
 locate sshd_config → Quickly locate SSH config file
 locate README.md → Find documentation files
 locate "*.log" → List all log files
@@ -36,6 +42,8 @@ locate "*.tmp" → Find temporary files
 sudo updatedb → Update locate’s file index
 
  WHICH — Show path of a command
+which [COMMAND]
+
 which python3 → Show installed Python binary path
 which git → Show Git executable location
 which node → Verify Node.js installation
@@ -48,6 +56,8 @@ which curl → Verify curl availability
 which bash → Show bash shell path
 
 WHEREIS — Locate binaries, source, and man pages
+whereis [COMMAND]
+
 whereis gcc → Locate GCC binary, source, and docs
 whereis python → Locate all Python-related paths
 whereis vim → Find Vim binary and man page
