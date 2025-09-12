@@ -1,16 +1,21 @@
-Difference between pods & deployments
-How to rollout an updates.
-How to attach service running on network a to network b
-How to auoscale application
-How network works in kubernetes
-What is HA & VA scaling
-How to make sure the ephermal data is captured in kubernetes
-How to determine I/O erros in storage
-How can we automatically determine application load and implement autoscaling in Kubernetes
-HorizontalPodAutoscaler (HPA) – adds/removes pods based on metrics.
-VerticalPodAutoscaler (VPA) – right-sizes pod requests/limits.
-Cluster Autoscaler (CA) – adds/removes nodes when pods are pending.
-Event-driven autoscaling (KEDA) – scales on external systems (queues, cloud services).
+# Kubernetes Interview Questions
+
+1. **What is the difference between Pods and Deployments in Kubernetes?**  
+Pod: Smallest unit in Kubernetes. It runs one or more containers. Pods are temporary and don’t come back automatically if they fail.
+Deployment: A controller that manages Pods. It makes sure the right number of Pods are running, supports scaling, rolling updates, and rollbacks.
+2. **How can application updates be rolled out in Kubernetes?**  
+3. **How do you expose or connect a service running in one network/namespace to another?**  
+4. **How can applications be autoscaled in Kubernetes?**  
+5. **How does networking work inside a Kubernetes cluster?**  
+6. **What do High Availability (HA) and Vertical/Horizontal Autoscaling (VA/HA) mean in Kubernetes?**  
+7. **How can ephemeral (temporary) data be preserved or captured in Kubernetes?**  
+8. **How do you detect and troubleshoot I/O errors in Kubernetes storage?**  
+9. **How can we automatically determine application load and configure autoscaling in Kubernetes?**  
+10. **What is a Horizontal Pod Autoscaler (HPA), and how does it differ from Vertical Pod Autoscaler (VPA), Cluster Autoscaler (CA), and KEDA?**  
+11. **How does service discovery work in Kubernetes?**
+12. Pod affinity and readiness
+13. RBAC
+
 
 # 📘 Kubernetes Interview Prep Notes + Hands-On
 
