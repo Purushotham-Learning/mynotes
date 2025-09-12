@@ -44,6 +44,9 @@ STEP 4. Why Users See No Downtime
 Old Pods keep running until new Pods are ready.
 Readiness probes ensure new Pods only receive traffic once they are fully initialized.
 The Service object hides Pod IP changes — clients always connect via the Service, not directly to Pods.
+
+Deployment with Rolling Update strategy
+https://github.com/Purushotham-Learning/mynotes/blob/main/k8s/deployment_with_rolling_update_stratergy.yml
 3. 
 4. **How do you expose or connect a service running in one network/namespace to another?**  
 5. **How can applications be autoscaled in Kubernetes?**  
