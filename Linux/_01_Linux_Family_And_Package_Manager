@@ -52,19 +52,19 @@ Linux Kernel (1991, Linus Torvalds + Community)
 
 📦**Installed Packages Cheat Sheet (by OS)**
 
-| OS / Distro            | Command(s) to List Installed Packages                                                   | Notes                                                |
-| ---------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| Debian / Ubuntu        | apt list --installed<br>dpkg -l<br>dpkg-query -W -f='\${binary\:Package} \${Version}\n' | Modern (apt), low-level (dpkg), export (dpkg-query)  |
-| RHEL / CentOS / Fedora | yum list installed<br>dnf list installed<br>rpm -qa                                     | yum = legacy, dnf = modern, rpm = raw list           |
-| openSUSE / SLES        | zypper se --installed-only<br>rpm -qa                                                   | zypper = high-level, rpm = raw                       |
-| Arch / Manjaro         | pacman -Q<br>pacman -Qe<br>pacman -Qdt                                                  | -Q = all, -Qe = explicitly installed, -Qdt = orphans |
-| Alpine Linux           | apk list -I                                                                             | Installed packages                                   |
-| Gentoo                 | equery list '\*' (needs gentoolkit)<br>emerge --search <pkg>                            | equery = list all, emerge = search                   |
-| Slackware              | ls /var/log/packages/                                                                   | Packages logged as text files                        |
-| Void Linux             | xbps-query -l                                                                           | Installed packages                                   |
-| NixOS                  | nix-env -q<br>nix-store -qR /run/current-system/sw                                      | nix-env = user pkgs, nix-store = system pkgs         |
-| macOS (Homebrew)       | brew list<br>brew list --cask                                                           | brew = packages, cask = apps                         |
-| Windows (Chocolatey)   | choco list --localonly                                                                  | Installed packages                                   |
-| Windows (Winget)       | winget list                                                                             | Installed software                                   |
-
+| OS / Distro Family  | Example Distros                            | Package Manager(s)                      | Package Format        |
+| ------------------- | ------------------------------------------ | --------------------------------------- | --------------------- |
+| **Debian-based**    | Debian, Ubuntu, Linux Mint, Kali, Pop!\_OS | `apt`, `dpkg`                           | `.deb`                |
+| **Red Hat-based**   | RHEL, CentOS, Fedora, Rocky, Alma, Oracle  | `yum`, `dnf`, `rpm`                     | `.rpm`                |
+| **SUSE-based**      | openSUSE, SLES                             | `zypper`, `rpm`                         | `.rpm`                |
+| **Arch-based**      | Arch Linux, Manjaro, EndeavourOS, Garuda   | `pacman`                                | tar.xz packages       |
+| **Gentoo-based**    | Gentoo, Calculate Linux                    | `portage (emerge)`                      | source-based          |
+| **Slackware-based** | Slackware, Salix                           | `slackpkg`                              | `.tgz` / `.txz`       |
+| **Alpine-based**    | Alpine Linux, postmarketOS                 | `apk`                                   | `.apk`                |
+| **Void Linux**      | Void Linux                                 | `xbps` (`xbps-install`)                 | `.xbps`               |
+| **NixOS**           | NixOS                                      | `nix`                                   | `.nar` (Nix archives) |
+| **Clear Linux**     | Clear Linux (Intel)                        | `swupd`                                 | bundles               |
+| **BSD Family**      | FreeBSD, OpenBSD, NetBSD                   | `pkg` / ports                           | various               |
+| **macOS**           | macOS                                      | `brew` (Homebrew), `macports`           | bottles/casks         |
+| **Windows**         | Windows 10/11                              | `choco` (Chocolatey), `winget`, `scoop` | exe/msi               |
 
