@@ -1,0 +1,70 @@
+Linux Kernel (1991, Linus Torvalds + Community)
+│
+├── Slackware Family
+│   ├── Slackware (1993, Patrick Volkerding)
+│   │   Latest: 15.0 (2022) – Kernel ~6.6 LTS (updated manually)
+│   └── SUSE (1994, SUSE)
+│       ├── openSUSE Leap 15.6 (2024) – Kernel 5.14 LTS
+│       └── SLES 15 SP6 (2024) – Kernel 5.14 LTS
+│
+├── Debian Family
+│   ├── Debian (1993, Debian Project – Community)
+│   │   Latest: Debian 12 "Bookworm" (2023) – Kernel 6.1 LTS
+│   └── Ubuntu (2004, Canonical Ltd.)
+│       ├── Ubuntu 24.04 LTS (2024) – Kernel 6.8
+│       ├── Linux Mint 22 (2024, Mint Team) – Kernel 6.8
+│       ├── Pop!_OS 24.04 (2024, System76) – Kernel 6.8
+│       └── Elementary OS 8 (2024, Elementary Inc.) – Kernel 6.8
+│   ├── Kali Linux 2025.1 (2006, Offensive Security) – Kernel 6.6 LTS
+│   ├── MX Linux 23 (2014, MX Community) – Kernel 6.1 LTS
+│   └── Raspberry Pi OS (2013, Raspberry Pi Foundation)
+│       Latest: 2025 release – Kernel 6.6 (ARM-optimized)
+│
+├── Red Hat Family
+│   ├── RHEL 9.4 (2000, Red Hat / IBM) – Kernel 5.14 (backported patches)
+│   │   ├── CentOS Stream 9 (2021, Red Hat) – Kernel 5.14
+│   │   ├── Rocky Linux 9.4 (2021, RESF) – Kernel 5.14
+│   │   └── AlmaLinux 9.4 (2021, AlmaLinux OS Foundation) – Kernel 5.14
+│   ├── Oracle Linux 9.4 (2006, Oracle) – Kernel 5.15 UEK
+│   └── Fedora 40 (2003, Red Hat + Community) – Kernel 6.9 (cutting edge)
+│
+├── Arch Family
+│   ├── Arch Linux (2002, Community) – Rolling release – Kernel 6.9 (latest)
+│   ├── Manjaro 24.0 (2011, Manjaro GmbH) – Kernel 6.9 (LTS optional 6.6)
+│   ├── EndeavourOS (2019, Community) – Rolling release – Kernel 6.9
+│   └── Garuda Linux (2020, Community) – Rolling release – Kernel 6.9 (Zen kernel)
+│
+├── Gentoo Family
+│   ├── Gentoo (2000, Gentoo Foundation – Community)
+│   │   Rolling release – Kernel user’s choice (default 6.6 LTS)
+│   └── Calculate Linux 24 (2007, Calculate Ltd.) – Kernel 6.6 LTS
+│
+├── Alpine Family
+│   ├── Alpine Linux 3.20 (2005, Community) – Kernel 6.6 LTS
+│   └── postmarketOS 24.x (2017, Community) – Kernel 6.6 (mobile)
+│
+└── Independent Distros
+    ├── NixOS 24.05 (2003, NixOS Foundation) – Kernel 6.6 LTS (unstable: 6.9)
+    ├── Void Linux (2008, Community) – Rolling release – Kernel 6.6 LTS
+    ├── Clear Linux (2015, Intel) – Rolling release – Kernel 6.9 (Intel optimized)
+    └── Android 14 (2008, Google) – Kernel 6.1 (mobile/ARM patched)
+
+
+📦**Installed Packages Cheat Sheet (by OS)**
+
+| OS / Distro            | Command(s) to List Installed Packages                                                   | Notes                                                |
+| ---------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| Debian / Ubuntu        | apt list --installed<br>dpkg -l<br>dpkg-query -W -f='\${binary\:Package} \${Version}\n' | Modern (apt), low-level (dpkg), export (dpkg-query)  |
+| RHEL / CentOS / Fedora | yum list installed<br>dnf list installed<br>rpm -qa                                     | yum = legacy, dnf = modern, rpm = raw list           |
+| openSUSE / SLES        | zypper se --installed-only<br>rpm -qa                                                   | zypper = high-level, rpm = raw                       |
+| Arch / Manjaro         | pacman -Q<br>pacman -Qe<br>pacman -Qdt                                                  | -Q = all, -Qe = explicitly installed, -Qdt = orphans |
+| Alpine Linux           | apk list -I                                                                             | Installed packages                                   |
+| Gentoo                 | equery list '\*' (needs gentoolkit)<br>emerge --search <pkg>                            | equery = list all, emerge = search                   |
+| Slackware              | ls /var/log/packages/                                                                   | Packages logged as text files                        |
+| Void Linux             | xbps-query -l                                                                           | Installed packages                                   |
+| NixOS                  | nix-env -q<br>nix-store -qR /run/current-system/sw                                      | nix-env = user pkgs, nix-store = system pkgs         |
+| macOS (Homebrew)       | brew list<br>brew list --cask                                                           | brew = packages, cask = apps                         |
+| Windows (Chocolatey)   | choco list --localonly                                                                  | Installed packages                                   |
+| Windows (Winget)       | winget list                                                                             | Installed software                                   |
+
+
