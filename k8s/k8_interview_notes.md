@@ -57,8 +57,11 @@ https://github.com/Purushotham-Learning/mynotes/blob/main/k8s/deployment_with_ro
 10. **How can we automatically determine application load and configure autoscaling in Kubernetes?**  
 11. **What is a Horizontal Pod Autoscaler (HPA), and how does it differ from Vertical Pod Autoscaler (VPA), Cluster Autoscaler (CA), and KEDA?**  
 12. **How does service discovery work in Kubernetes?**
-13. Pod affinity and readiness
-14. RBAC
+13. **Pod affinity and readiness**
+14. **RBAC**
+15. **Challenges while creating Kubernetes Cluster**
+16.  **How to optimize dockerfiler**
+17. When you are running a cron jobs in deameonset, the logs are ephermal how do you handle this in kubernetes
 
 
 # 📘 Kubernetes Interview Prep Notes + Hands-On
