@@ -61,8 +61,18 @@ https://github.com/Purushotham-Learning/mynotes/blob/main/k8s/deployment_with_ro
 14. **RBAC**
 15. **Challenges while creating Kubernetes Cluster**
 16.  **How to optimize dockerfiler**
-17. When you are running a cron jobs in deameonset, the logs are ephermal how do you handle this in kubernetes
-18. Learn about inodes
+17.  **When you are running a cron jobs in deameonset, the logs are ephermal how do you handle this in kubernetes**
+17.  **Learn about inodes** 
+18. **Got it 👍 — in Kubernetes you don’t explicitly “create a network” (the cluster network is handled by a CNI plugin like Flannel, Calico, Cilium).
+But what you usually mean is:
+Expose Pods to each other (internal network) → use a Service.
+Expose Pods externally (outside cluster) → use Service + Ingress/LoadBalancer.
+Control communication → use a NetworkPolicy.** 
+
+
+
+
+
 
 
 # 📘 Kubernetes Interview Prep Notes + Hands-On
