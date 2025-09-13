@@ -62,6 +62,7 @@ https://github.com/Purushotham-Learning/mynotes/blob/main/k8s/deployment_with_ro
 15. **Challenges while creating Kubernetes Cluster**
 16.  **How to optimize dockerfiler**
 17. When you are running a cron jobs in deameonset, the logs are ephermal how do you handle this in kubernetes
+18. Learn about inodes
 
 
 # 📘 Kubernetes Interview Prep Notes + Hands-On
