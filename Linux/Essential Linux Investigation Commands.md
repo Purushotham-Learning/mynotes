@@ -85,7 +85,7 @@ compgen -c        # List all available shell commands
 
 | Area                      | Commands                                                          |
 | ------------------------- | ----------------------------------------------------------------- |
-| **System & Hardware**     | `uname`, `lscpu`, `lsblk`, `lspci`, `lsusb`, `dmidecode`, `dmesg` |
+| **System & Hardware**     | `uname`, `lscpu`, `lsblk`, `lspci`, `lsusb`, `dmidecode`, `dmesg`(To see kernel messages) |
 | **Memory & CPU**          | `top`, `htop`, `vmstat`, `free`, `iostat`                         |
 | **Storage & Filesystems** | `df`, `du`, `fsck`, `blkid`, `fdisk`, `mount -a`, `findmnt`       |
 | **Processes & I/O**       | `ps`, `lsof`, `netstat`, `ss`                                     |
@@ -94,5 +94,135 @@ compgen -c        # List all available shell commands
 | **Basic Info**            | `uptime`, `w`, `who`, `hostname`, `date`, `cal`, `compgen -c`     |
 
 ---
+# Real Use Cases for `dmesg`
 
-You can copy this directly into your `README.md`. Let me know if you want to add examples or expand specific sections!
+---
+
+## 1. Detecting a newly attached USB drive
+
+```bash
+dmesg -w
+```
+
+* When you plug in a USB stick, `dmesg` shows how the kernel recognizes it.
+* From this, you know the device is `/dev/sdb1` and ready to mount.
+
+---
+
+## 2. Troubleshooting a failing hard disk
+
+```bash
+dmesg -T | grep -i error
+```
+
+**Example Output:**
+
+```
+[ 5678.234] ata1.00: failed command: READ FPDMA QUEUED
+[ 5678.235] blk_update_request: I/O error, dev sda, sector 123456
+```
+
+* Tells you disk **sda** is failing → time to back up or replace.
+
+---
+
+## 3. Investigating Out of Memory (OOM) kills
+
+```bash
+dmesg | grep -i oom
+```
+
+**Example Output:**
+
+```
+[ 7890.123] Out of memory: Kill process 2345 (java) score 987 or sacrifice child
+[ 7890.124] Killed process 2345 (java) total-vm:4096000kB, anon-rss:3072000kB
+```
+
+👉 Explains why your app was suddenly killed.
+
+---
+
+## 4. Checking why a NIC (network card) isn’t working
+
+```bash
+dmesg | grep -i eth
+```
+
+**Example Output:**
+
+```
+[ 12.345]  e1000e 0000:00:19.0 eth0: link is not ready
+[ 15.678]  e1000e 0000:00:19.0 eth0: link up at 1000 Mbps, full-duplex
+```
+
+* Shows driver initialization and link status.
+
+---
+
+## 5. Debugging kernel module loads/unloads
+
+```bash
+sudo modprobe ip_tables
+dmesg | tail -n 5
+```
+
+**Example Output:**
+
+```
+[ 200.567] ip_tables: (C) 2000-2006 Netfilter Core Team
+```
+
+👉 Confirms module loaded correctly.
+
+---
+
+## 6. Diagnosing hardware failures (RAM, CPU)
+
+```bash
+dmesg --level=err,warn
+```
+
+**Example Output:**
+
+```
+[ 999.456] mce: CPU0: Machine Check Exception: 0 Bank 5: b200000000070005
+[ 999.457] EDAC MC0: 1 CE memory read error at 0x0000000123456789
+```
+
+👉 Kernel detected CPU/RAM hardware errors.
+
+---
+
+## 7. Verifying boot messages
+
+```bash
+dmesg | less
+```
+
+* Scroll through all the kernel startup logs: CPU cores detected, drivers loaded, file systems mounted.
+
+---
+
+## 8. Debugging USB peripheral issues (e.g., webcam not detected)
+
+```bash
+dmesg | grep -i video
+```
+
+**Example Output:**
+
+```
+[ 1345.678] usb 2-1: uvcvideo: Found UVC 1.00 device HD Webcam (046d:0825)
+[ 1345.679] input: HD Webcam as /devices/pci0000:00/.../video4linux/video0
+```
+
+👉 Confirms the webcam is available at `/dev/video0`.
+
+
+[ 1345.678] usb 2-1: uvcvideo: Found UVC 1.00 device HD Webcam (046d:0825)
+[ 1345.679] input: HD Webcam as /devices/pci0000:00/.../video4linux/video0
+
+
+👉 Confirms the webcam is available at /dev/video0.
+
