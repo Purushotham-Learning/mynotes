@@ -108,7 +108,7 @@ Instead of shutting down all Pods and starting new ones, Kubernetes replaces Pod
   * **Expose externally** → use **Service (NodePort/LoadBalancer) + Ingress**.
   * **Control traffic** → use **NetworkPolicy**.
 
-
+## 20. Autoscaling of node and pods without manual intervention
 
 
 
