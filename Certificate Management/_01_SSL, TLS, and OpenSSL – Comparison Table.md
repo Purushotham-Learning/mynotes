@@ -1,3 +1,6 @@
+**A protocol is just a set of rules that defines how two systems talk to each other.
+Think of it like a language with grammar — if both sides follow the same rules, they can exchange information reliably.**
+
 # 🔐 SSL, TLS, and OpenSSL – Comparison Table
 | **Aspect / Topic**     | **SSL**                                          | **TLS**                                                     | **OpenSSL**                                                             |
 | ---------------------- | ------------------------------------------------ | ----------------------------------------------------------- | ----------------------------------------------------------------------- |
