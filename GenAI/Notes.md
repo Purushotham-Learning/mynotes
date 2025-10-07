@@ -98,23 +98,29 @@ ML works with the function:
 ## Types of ML Techniques:
 
 ### 1. Supervised Learning:
+## 📘 Definition
+Supervised Learning is a machine learning approach where the model learns from **labeled data** —  
+each example has **inputs (features)** and a known **output (label)**.  
+The goal is to predict the label for new, unseen data.
+
 - Learn from labelled data
   - In machine learning, when data comes with labels (dependent feature/target), we can train a model to map inputs → outputs.
   - The algorithm learns from examples where the correct answer is already known.
 - When we have a dependent feature we call it supervised learning.
 
-#### Types of Problem Statements:
+
 
 **Regression**  
   - Focus: Predicts output, mostly working with continuous data.
   - Example: Predicting house prices based on features like size, location, and number of bedrooms.
   - **Regression Algorithms:**
-    - Simple Linear Regression
-    - Multi Linear Regression
-    - Polynomial Regression
-    - Support Vector Regression
-    - Ridge & Lasso Regression
-    - Elastic Net
+    - Simple Linear Regression: Predict house price based on its area. 
+    - Multi Linear Regression: Predict employee salary using experience, education, and age.
+    - Polynomial Regression: Predict car price based on its age (non-linear trend).
+    - Support Vector Regression: Forecast stock prices with tolerance for small fluctuations.
+    - Ridge & Lasso Regression: Predict sales while reducing overfitting from correlated marketing variables.  
+    - Elastic Net: Estimate housing prices using many correlated features with combined Ridge & Lasso regularization.  
+ 
 
 **Classification**  
   - Focus: Classifies or categorizes the data into distinct classes.
@@ -165,6 +171,44 @@ ML works with the function:
 4. Model Selection: Choose the appropriate algorithm based on the problem and data.
 5. Model Training: Train the model using the training dataset.
 6. Model Evaluation: Assess the model's performance using evaluation metrics (accuracy, precision, recall, etc.).
+---
+
+### 📧 Example: Email Spam Detection
+
+|                     | Predicted Spam | Predicted Not Spam |
+| ------------------- | -------------- | ------------------ |
+| **Actual Spam**     | 45 (TP)        | 15 (FN)            |
+| **Actual Not Spam** | 5 (FP)         | 35 (TN)            |
+
+
+| Metric        | Formula                         | Result | Meaning                         |
+| ------------- | ------------------------------- | ------ | ------------------------------- |
+| **Accuracy**  | (TP + TN) / (TP + TN + FP + FN) | 80%    | Overall correctness             |
+| **Precision** | TP / (TP + FP)                  | 90%    | Reliability of spam predictions |
+| **Recall**    | TP / (TP + FN)                  | 75%    | Ability to find actual spam     |
+| **F1-Score**  | 2 × (P × R) / (P + R)           | 81.8%  | Balanced performance measure    |
+
+---
+
+### 🧮 Formulas and Results
+
+**Accuracy:**  
+\[
+Accuracy = \frac{TP + TN}{TP + TN + FP + FN} = \frac{45 + 35}{100} = 0.80 \Rightarrow 80\%
+\]
+
+**Precision:**  
+\[
+Precision = \frac{TP}{TP + FP} = \frac{45}{45 + 5} = 0.90 \Rightarrow 90\%
+\]
+
+**Recall:**  
+\[
+Recall = \frac{TP}{TP + FN} = \frac{45}{45 + 15} = 0.75 \Rightarrow 75\%
+\]
+
+**F1-Scor**
+
 7. Model Tuning: Fine-tune the model parameters to improve performance.
 8. Model Development & Deployment: Implement the model in a production environment. Integrate with existing systems.
 9. Model Monitoring: Continuously monitor the model's performance.
@@ -248,6 +292,31 @@ Deep Learning is a subset of ML. It mimics the human brain using multi-layer neu
 **Convergence Algorithm:** Optimize the change of theta 1 value  
 - Low Bias & High Variance [Overfitting]  
 - Low Bias & Low Variance [Underfitting]
+
+## 🎯 Understanding Bias and Variance
+
+When evaluating machine learning models, we often describe their behavior in terms of **Bias** and **Variance** —  
+these two reflect how well the model generalizes to unseen data.
+
+---
+
+### 🧠 Key Terms
+
+| Term | Meaning |
+|------|----------|
+| **Bias** | How far the model’s predictions are from the true values (error due to wrong assumptions). |
+| **Variance** | How much the model’s predictions change when trained on different data samples (sensitivity to noise). |
+
+---
+
+### 📊 Typical Scenarios
+
+| Bias | Variance | Model Behavior | Result |
+|------|-----------|----------------|---------|
+| **High Bias & Low Variance** | Model is too simple | **Underfitting** — poor training and test accuracy |
+| **Low Bias & High Variance** | Model is too complex | **Overfitting** — great on training data, poor on test data |
+| **Low Bias & Low Variance** | Model is well-balanced | **Ideal Model** — good generalization |
+| **High Bias & High Variance** | Model performs poorly everywhere | **Worst Case** — neither fits training nor generalizes well |
 
 ## Topics Covered:
 - Simple Linear Regression
