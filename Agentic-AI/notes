@@ -1,0 +1,12 @@
+pseudo code of an AI agent
+ 
+set the api key
+open the client connection with LLM
+while TRUE: (infinite while loop:
+	get the user input;
+	set the user prompt;
+	set the SYSTEM PROMPT;
+	use the api to get the llm response;
+	use any tools and store in memory;
+	output the results
+	continue;
